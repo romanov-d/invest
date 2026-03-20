@@ -43,22 +43,74 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: var(--color-bg);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-.slide-content {
-  padding: 5rem 1.5rem 6rem 1.5rem;
-  /* Increased bottom padding to clear counter and browser UI */
-  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  section {
+    page-break-after: always !important;
+    break-after: page !important;
+    min-height: auto !important;
+    padding: 1cm !important;
+    display: block !important;
+  }
+
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  body {
+    background: white !important;
+    font-size: 12pt;
+  }
+
+  h1 { font-size: 28pt !important; }
+  h2 { font-size: 24pt !important; }
+  
+  .grid {
+    display: block !important;
+  }
+  
+  .grid > div {
+    margin-bottom: 1rem !important;
+    page-break-inside: avoid !important;
+  }
 }
 
-@media (min-width: 768px) {
-  .slide-content {
-    padding: 4rem 4rem 2rem 4rem;
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
+  
+  h2 {
+    font-size: 2.25rem !important;
+  }
+  
+  .grid {
+    gap: 1.25rem !important;
   }
 }
 
