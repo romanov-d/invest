@@ -271,7 +271,7 @@ export default function App() {
                           <CreditCard style={{ width: 20, height: 20 }} />
                         </div>
                         <div>
-                          <span className="font-bold">{t('avgCheck')}</span> {activeModel === 'canteen' ? '7 - 9 €' : '10 - 12 €'}.
+                          <span className="font-bold">{t('avgCheck')}</span> {activeModel === 'canteen' ? t('avgCheckValueCanteen') : t('avgCheckValueDK')}.
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
